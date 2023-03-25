@@ -1,13 +1,13 @@
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
-import HomePage from "scenes/homePage";
-import LoginPage from "scenes/loginPage";
+import HomePage from "./Pages/homePage";
+import LoginPage from "./Pages/loginPage";
+import Course from "./Pages/coursePage";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
-import PostsWidget from "scenes/widgets/PostsWidget";
-import Course from "scenes/coursePage";
+
 function App() {
   const mode = useSelector((state) => state.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
