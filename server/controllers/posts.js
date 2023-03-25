@@ -39,7 +39,6 @@ export const createPost = async(req, res) =>{
 //read
 export const getFeedPosts = async (req, res) =>{
     try {
-        console.log("hello world")
         const post = await Post.find();
         res.status(200).json(post);
     } catch (err) {
@@ -49,9 +48,7 @@ export const getFeedPosts = async (req, res) =>{
 
 export const getCourses = async(req, res) => {
     try{
-        console.log("hellp");
         const courses = await Course.find();
-        console.log(courses)
         res.status(200).json(courses);
     }catch (err) {
         res.status(404).json({message: err.message});

@@ -36,9 +36,11 @@ export const register = async(req, res) =>{
             occupation,
             viewedProfile: Math.floor(Math.random() * 1000),
         });
-        const savedUser = await newUser.save();
+        await newUser.save();
+        const user = await User.findOne({email: email});
         //201 created status back to user with json version of saved user (sent to front-end)
-        res.status(201).json(savedUser);
+        const token = jwt.sign({id: user._id}, process.env.JWT_SECRET);
+        res.status(201).json({token, user});
     }catch(err){
         res.status(500).json({error: err.message});
     }
@@ -46,6 +48,7 @@ export const register = async(req, res) =>{
 
 //Login 
 export const login = async(req, res) =>{
+    console.log("login 400?");
     try{
         //grab email and pw when user tries to login
         const {email, password} = req.body;
