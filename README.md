@@ -1,7 +1,7 @@
 # Rate-My-Courses-MERN-app
 
 Full-Stack Rate My Courses where students can provide feedback on various courses at Concordia University
-
+https://ratemycourses.onrender.com/
 ## Tech Stack
 **Frontend:**
 
